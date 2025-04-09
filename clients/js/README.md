@@ -24,9 +24,9 @@ A Umi-compatible JavaScript library for the project.
    import { useConnection, useWallet } from '@solana/wallet-adapter-react';
    import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 
-   export function MyComponent() {
-      const wallet = useWallet();
-      const { connection } = useConnection();
+   export function MyComponent() {HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
+         const wallet = useWallet();HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
+      const { connection } = useConnection();HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
       const umi = createUmi(connection)
          .use(walletAdapterIdentity(wallet))
          .use(mplCore())
@@ -38,12 +38,12 @@ A Umi-compatible JavaScript library for the project.
 4. Examples
    ```ts
    // Create an asset
-   const assetAddress = generateSigner(umi);
-   const owner = generateSigner(umi);
+   const assetAddress = generateSigner(umi);HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
+   const owner = generateSigner(umi);HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
    await create(umi, {
      name: 'Test Asset',
      uri: 'https://example.com/asset.json',
-     asset: assetAddress,
+     asset: assetAddress,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      owner: owner.publicKey, // optional, will default to payer
    }).sendAndConfirm(umi);
 
