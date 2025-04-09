@@ -23,7 +23,7 @@ A Umi-compatible JavaScript library for the project.
    ```ts
    import { useConnection, useWallet } from '@solana/wallet-adapter-react';
    import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
-
+HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
    export function MyComponent() {HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
          const wallet = useWallet();HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
       const { connection } = useConnection();HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
@@ -48,7 +48,7 @@ A Umi-compatible JavaScript library for the project.
    }).sendAndConfirm(umi);
 
    // Fetch an asset
-   const asset = await fetchAssetV1(umi, assetAddress.publicKey);
+   const asset = await fetchAssetV1(umi, assetAddress.publicKey);HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
 
    // Create a collection
    const collectionUpdateAuthority = generateSigner(umi);
@@ -56,7 +56,7 @@ A Umi-compatible JavaScript library for the project.
    await createCollection(umi, {
      name: 'Test Collection',
      uri: 'https://example.com/collection.json',
-     collection: collectionAddress,
+     collection: collectionAddress,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      updateAuthority: collectionUpdateAuthority.publicKey, // optional, defaults to payer
    }).sendAndConfirm(umi);
 
@@ -67,7 +67,7 @@ A Umi-compatible JavaScript library for the project.
    await create(umi, {
      name: 'Test Asset',
      uri: 'https://example.com/asset.json',
-     asset: assetAddress,
+     asset: assetAddress,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      collection,
      authority: collectionUpdateAuthority, // optional, defaults to payer
    }).sendAndConfirm(umi);
@@ -94,11 +94,11 @@ A Umi-compatible JavaScript library for the project.
 
    // GPA fetch assets by collection
    const assetsByCollection = await getAssetV1GpaBuilder(umi)
-     .whereField('key', Key.AssetV1)
+     .whereField('key', Key.AssetV1)HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      .whereField(
        'updateAuthority',
        updateAuthority('Collection', [collectionAddress.publicKey])
-     )
+     )HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      .getDeserialized();
 
    // DAS API (RPC based indexing) fetch assets by owner/collection
@@ -114,7 +114,7 @@ A Umi-compatible JavaScript library for the project.
    const freezeDelegate = generateSigner(umi);
 
    await addPlugin(umi, {
-     asset: assetAddress.publicKey,
+     asset: assetAddress.publicKey,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      // adds the owner-managed freeze plugin to the asset
      plugin: {
        type: 'FreezeDelegate',
@@ -124,8 +124,8 @@ A Umi-compatible JavaScript library for the project.
        // This is functionally the same as calling addPlugin and approvePluginAuthority separately.
        // Freezing with a delegate is commonly used for escrowless staking programs.
        authority: {
-         type: 'Address',
-         address: freezeDelegate.publicKey,
+         type: 'Address',HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
+         address: freezeDelegate.publicKey,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
        },
      }
    }).sendAndConfirm(umi);
@@ -133,7 +133,7 @@ A Umi-compatible JavaScript library for the project.
    // Unfreezing an asset with a delegate
    // Revoking an authority will revert the authority back to the owner for owner-managed plugins
    await revokePluginAuthority(umi, {
-     asset: assetAddress.publicKey,
+     asset: assetAddress.publicKey,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      plugin: {
        type: 'FreezeDelegate',
      },
@@ -141,7 +141,7 @@ A Umi-compatible JavaScript library for the project.
    }).sendAndConfirm(umi);
 
    // Create a collection with royalties
-   const collectionAddress = generateSigner(umi);
+   const collectionAddress = generateSigner(umi);HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
    const creator1 = generateSigner(umi);
    const creator2 = generateSigner(umi);
 
@@ -174,7 +174,7 @@ A Umi-compatible JavaScript library for the project.
    await create(umi, {
      name: 'Test Asset',
      uri: 'https://example.com/asset.json',
-     asset: assetAddress,
+     asset: assetAddress,HCoXDRJqcVv7EWdHonAxusgmHSf2tetQkiryTme6PyTg
      collection: await fetchCollectionV1(umi, collectionAddress.publicKey),
    }).sendAndConfirm(umi);
    ```
